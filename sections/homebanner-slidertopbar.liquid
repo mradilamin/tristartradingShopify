@@ -1,57 +1,32 @@
-<section class="client">
+<section class="boxes">
     <div class="container">
-        <div class="title text-dark text-center pb-5">
-            <h3>{{ section.settings.title }} </h3>
-        </div>
-        <div class="client-slider">
-
+        <div class="row">
 
             {%- for block in section.blocks -%}
-                <div class="client-item">
-                <div class="client-inner-item">
-                    <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
-                    <div class="client-content">
-                        <div class="rating">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                            </ul>
-                        </div>
-                        {{ block.settings.content }}
-                        
-                        <div class="content-img">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/images/client-img-4.png" alt="">
-                        </div>
-                        <div class="con-buttom">
-                            <h4>{{ block.settings.title | escape }}</h4>
-                        </div>
+            <div class="col-12 col-lg-6 col-md-12">
+                <div class="box-item">
+                    <div class="box-inner-item">
+                        <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+                    </div>
+                    <div class="box-content">
+                        <h3>{{ block.settings.title | escape }}</h3>
+                        <a class="{% if forloop.index == 2 %}btn-4{% else %}btn-1{% endif %}" href="{{ block.settings.link_url }}">{{ block.settings.link_title }}</a>
                     </div>
                 </div>
-
             </div>
-        {% endfor %}
-
+            {% endfor %}
+            
         </div>
     </div>
 </section>
 
 
+
 {% schema %}
     {
-      "name": "Cus Reviews",
+      "name": "Cus Product Bann",
       "tag": "section",
       "class": "announcement-bar-section",
-      "settings": [
-        {
-        "type": "text",
-        "id": "title",
-        "default": "WHAT OUR CLIENT SAYS",
-        "label": "Title"
-        }
-    ],
     "blocks": [
       {
         "type": "column",
@@ -64,19 +39,29 @@
             "label": "Image"
         },
         {
-            "type": "richtext",
-            "id": "content",
-            "default" : "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>",
-            "label": "Content"
+            "type": "text",
+            "id": "title",
+            "default": "Collection",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "link_title",
+            "default": "Shop Now",
+            "label": "Button Title"
+        },
+        {
+            "type": "url",
+            "id": "link_url",
+            "label": "Button Link"
         }
-        
         ]
       }
     ],
 
     "presets": [
         {
-          "name": "Cus Reviews"
+          "name": "Cus Product Bann"
         }
       ]
     }
