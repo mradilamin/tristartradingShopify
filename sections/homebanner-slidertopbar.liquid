@@ -1,4 +1,4 @@
-<section class="Homeslidertoparea">
+<section class="client">
     <div class="container">
         <div class="title text-dark text-center pb-5">
             <h3>{{ section.settings.title }} </h3>
@@ -7,21 +7,31 @@
 
 
             {%- for block in section.blocks -%}
-
-                <div class="homewrapper-item">
-                 
-                    <img src="{{ block.settings.bannerimages | img_url: 'original' }}" alt="">
-                        <div class="upper-content">
-                                <h3>{{ block.settings.title | escape }}</h3>
-                                {{ block.settings.content }}
-                                <a href=" {{ block.settings.buttonurl}}">{{ block.settings.buttontext | escape }}</a>
+                <div class="client-item">
+                <div class="client-inner-item">
+                    <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+                    <div class="client-content">
+                        <div class="rating">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                            </ul>
                         </div>
-
+                        {{ block.settings.content }}
+                        
+                        <div class="content-img">
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/client-img-4.png" alt="">
+                        </div>
+                        <div class="con-buttom">
+                            <h4>{{ block.settings.title | escape }}</h4>
+                        </div>
+                    </div>
                 </div>
 
-
-
- 
+            </div>
         {% endfor %}
 
         </div>
@@ -29,65 +39,46 @@
 </section>
 
 
-{% schema %} 
-{
-  "name": "Custom Home Banner",
-  "tag": "section",
-  "class": "custom-homebanner-section",
-  "settings": [
+{% schema %}
     {
-      "type": "text",
-      "id": "section_title",
-      "default": "Slide",
-      "label": "Section Title"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "column",
-      "name": "Block Custom Home Banner",
+      "name": "Cus Reviews",
+      "tag": "section",
+      "class": "announcement-bar-section",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "bannerimages",
-          "label": "Image"
+        "type": "text",
+        "id": "title",
+        "default": "WHAT OUR CLIENT SAYS",
+        "label": "Title"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "t:sections.multicolumn.blocks.column.name",
+    
+        "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
         },
         {
-          "type": "richtext",
-          "id": "content",
-          "default": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>",
-          "label": "Content"
-        },
+            "type": "richtext",
+            "id": "content",
+            "default" : "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>",
+            "label": "Content"
+        }
+        
+        ]
+      }
+    ],
+
+    "presets": [
         {
-          "type": "text",
-          "id": "block_title",
-          "default": "Title",
-          "label": "Block Title"
-        },
-        {
-          "type": "text",
-          "id": "button_text",
-          "default": "Shop Now",
-          "label": "Button Text"
-        },
-        {
-          "type": "url",
-          "id": "button_url",
-          "label": "Button URL"
+          "name": "Cus Reviews"
         }
       ]
     }
-  ],
-  "presets": [
-    {
-      "name": "Custom Home Banner",
-      "blocks": [
-        {
-          "type": "column"
-        }
-      ]
-    }
-  ]
-}
 
 {% endschema %}
