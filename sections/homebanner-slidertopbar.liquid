@@ -29,68 +29,65 @@
 </section>
 
 
-{% schema %}
+{% schema %} 
+{
+  "name": "Custom Home Banner",
+  "tag": "section",
+  "class": "custom-homebanner-section",
+  "settings": [
     {
-      "name": "Custom Home Banner",
-      "tag": "section",
-      "class": "custom-homebanner-section",
+      "type": "text",
+      "id": "section_title",
+      "default": "Slide",
+      "label": "Section Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Block Custom Home Banner",
       "settings": [
         {
-        "type": "text",
-        "id": "title",
-        "default": "Slide",
-        "label": "Title"
-        }
-    ],
-    "blocks": [
-      {
-        "type": "column",
-        "name": "Block Custom Home Banner",
-    
-        "settings": [
-        {
-            "type": "image_picker",
-            "id": "bannerimages",
-            "label": "Image"
+          "type": "image_picker",
+          "id": "bannerimages",
+          "label": "Image"
         },
         {
-            "type": "richtext",
-            "id": "content",
-            "default" : "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>",
-            "label": "Content"
-        }
-        ,   {
-            "type": "text",
-            "id": "title",
-            "default" : "Title",
-            "label": "Content"
+          "type": "richtext",
+          "id": "content",
+          "default": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>",
+          "label": "Content"
         },
         {
-            "type": "text",
-            "id": "buttoncontent",
-            "default" : "Shop Now",
-            "label": "Content"
+          "type": "text",
+          "id": "block_title",
+          "default": "Title",
+          "label": "Block Title"
         },
         {
-            "type": "url",
-            "id": "buttonurl", 
-            "label": "Content"
-        }
-        
-        ]
-      }
-    ],
-
-    "presets": [
+          "type": "text",
+          "id": "button_text",
+          "default": "Shop Now",
+          "label": "Button Text"
+        },
         {
-          "name": "Custom Home Banner",
-          "blocks":[
-            {
-               "type":"column"
-            }
-         ]
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
         }
       ]
     }
+  ],
+  "presets": [
+    {
+      "name": "Custom Home Banner",
+      "blocks": [
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
 
 {% endschema %}
