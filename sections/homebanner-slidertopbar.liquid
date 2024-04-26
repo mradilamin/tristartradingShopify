@@ -23,47 +23,48 @@
 
 
 {% schema %}
+   {
+  "name": "Cus Product Bann",
+  "tag": "section",
+  "class": "announcement-bar-section",
+  "blocks": [
     {
-      "name": "Cus Product Bann",
-      "tag": "section",
-      "class": "announcement-bar-section",
-    "blocks": [
-      {
-        "type": "column",
-        "name": "Cus Product Bannssssss",
-    
-        "settings": [
-        {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-        },
-        {
-            "type": "text",
-            "id": "title",
-            "default": "Collection",
-            "label": "Title"
-        },
-        {
-            "type": "text",
-            "id": "link_title",
-            "default": "Shop Now",
-            "label": "Button Title"
-        },
-        {
-            "type": "url",
-            "id": "link_url",
-            "label": "Button Link"
-        }
-        ]
-      }
-    ],
+      "type": "column",
+      "name": "Custom Product Banner", // Changed the block name to a string
 
-    "presets": [
+      "settings": [
         {
-          "name": "Cus Product Bann"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Collection",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "link_title",
+          "default": "Shop Now",
+          "label": "Button Title"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Button Link"
         }
       ]
     }
+  ],
+
+  "presets": [
+    {
+      "name": "Cus Product Bann"
+    }
+  ]
+}
+
 
 {% endschema %}
