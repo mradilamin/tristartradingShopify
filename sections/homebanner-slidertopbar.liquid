@@ -10,7 +10,7 @@
 
                 <div class="homewrapper-item">
                  
-                    <img src="{{ block.settings.image }}" alt="">
+                    <img src="{{ block.settings.bannerimages | img_url: 'original' }}" alt="">
                         <div class="upper-content">
                                 <h3>{{ block.settings.title | escape }}</h3>
                                 {{ block.settings.content }}
@@ -50,7 +50,7 @@
         "settings": [
         {
             "type": "image_picker",
-            "id": "image",
+            "id": "bannerimages",
             "label": "Image"
         },
         {
@@ -83,7 +83,12 @@
 
     "presets": [
         {
-          "name": "Custom Home Banner"
+          "name": "Custom Home Banner",
+          "blocks":[
+            {
+               "type":"column"
+            }
+         ]
         }
       ]
     }
