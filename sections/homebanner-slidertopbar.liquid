@@ -1,0 +1,91 @@
+<section class="Homeslidertoparea">
+    <div class="container">
+        <div class="title text-dark text-center pb-5">
+            <h3>{{ section.settings.title }} </h3>
+        </div>
+        <div class="client-slider">
+
+
+            {%- for block in section.blocks -%}
+
+                <div class="homewrapper-item">
+                
+                    <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+                        <div class="upper-content">
+                                <h3>{{ block.settings.title | escape }}</h3>
+                                {{ block.settings.content_for_header | escape }}
+                                <a href=" {{ block.settings.buttonurl}}">{{ block.settings.buttontext | escape }}</a>
+                        </div>
+
+                </div>
+
+
+
+ 
+        {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+    {
+      "name": "Custom Home Banner",
+      "tag": "section",
+      "class": "custom-homebanner-section",
+      "settings": [
+        {
+        "type": "text",
+        "id": "title",
+        "default": "Slide",
+        "label": "Title"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "t:sections.multicolumn.blocks.column.name",
+    
+        "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "richtext",
+            "id": "content",
+            "default" : "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>",
+            "label": "Content"
+        }
+        ,   {
+            "type": "text",
+            "id": "title",
+            "default" : "Title",
+            "label": "Content"
+        },
+        {
+            "type": "text",
+            "id": "buttoncontent",
+            "default" : "Shop Now",
+            "label": "Content"
+        },
+        {
+            "type": "url",
+            "id": "buttonurl", 
+            "label": "Content"
+        }
+        
+        ]
+      }
+    ],
+
+    "presets": [
+        {
+          "name": "Custom Home Banner"
+        }
+      ]
+    }
+
+{% endschema %}
