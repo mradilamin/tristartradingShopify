@@ -9,8 +9,8 @@
             {%- for block in section.blocks -%}
 
                 <div class="homewrapper-item">
-                
-                    <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+                 
+                    <img src="{{ block.settings.image }}" alt="">
                         <div class="upper-content">
                                 <h3>{{ block.settings.title | escape }}</h3>
                                 {{ block.settings.content }}
